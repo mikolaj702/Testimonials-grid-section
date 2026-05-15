@@ -5,20 +5,21 @@
   ========================= */
 
   --clr-bg: hsl(210, 46%, 95%);
-
   --clr-purple: hsl(263, 55%, 52%);
   --clr-gray: hsl(217, 19%, 35%);
   --clr-dark: hsl(219, 29%, 14%);
   --clr-white: hsl(0, 0%, 100%);
-
   --clr-text-dark: hsl(219, 29%, 14%);
 
   /* =========================
-     SHADOW
+     SHADOWS
   ========================= */
 
   --shadow:
     0 1.25rem 2.5rem rgba(0, 0, 0, 0.1);
+
+  --shadow-hover:
+    0 1.5rem 3rem rgba(0, 0, 0, 0.15);
 
   /* =========================
      BORDER RADIUS
@@ -49,6 +50,9 @@
 
   --fs-name:
     clamp(0.95rem, 0.9rem + 0.3vw, 1rem);
+
+  --fs-review:
+    clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
 }
 
 /* =========================
@@ -95,11 +99,11 @@ body {
 
   position: absolute;
 
-  width: 1px;
-  height: 1px;
+  width: 0.0625rem;
+  height: 0.0625rem;
 
   padding: 0;
-  margin: -1px;
+  margin: -0.0625rem;
 
   overflow: hidden;
 
@@ -141,19 +145,18 @@ body {
 }
 
 /* =========================
-   HOVER EFFECT
+   HOVER
 ========================= */
 
 .card:hover {
 
   transform: translateY(-0.3rem);
 
-  box-shadow:
-    0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-hover);
 }
 
 /* =========================
-   USER SECTION
+   USER
 ========================= */
 
 .user {
@@ -208,8 +211,7 @@ body {
 
 .review {
 
-  font-size:
-    clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  font-size: var(--fs-review);
 
   line-height: 1.7;
 
@@ -217,7 +219,7 @@ body {
 }
 
 /* =========================
-   CARD COLORS
+   COLORS
 ========================= */
 
 .purple {
@@ -281,5 +283,21 @@ body {
 
   .tall {
     grid-area: tall;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  * {
+
+    animation: none !important;
+
+    transition: none !important;
+
+    scroll-behavior: auto !important;
   }
 }
